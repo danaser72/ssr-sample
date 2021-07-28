@@ -4,22 +4,19 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter, Switch, Route } from "react-router-dom";
 
 import App from "./App.js";
-import Comp from "./Comp.js";
 
 http
   .createServer((req, res) => {
     const context = {};
     const html = ReactDOMServer.renderToString(
       <StaticRouter location={req.url} context={context}>
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route path="/Comp" component={Comp} />
-        </Switch>
+        <App />
       </StaticRouter>
     );
 
-    if (context.url) {
-      res.writeHead(301, {
+    if (context.url) {      
+      console.log(context);
+      res.writeHead(302, {
         Location: context.url
       });
       res.end();

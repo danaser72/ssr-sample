@@ -1,12 +1,12 @@
 import React from "react";
 
-function Comp() {
+function Test() {
   return (
     <div>
-      Comp!!!!!
+      Test!!!!!
     </div>
 
   )
 }
 
-export default Comp;
+export default Test;
